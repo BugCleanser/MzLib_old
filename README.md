@@ -1,12 +1,12 @@
 <div align=center> 
 
-<img src="https://raw.githubusercontent.com/BugCleanser/MzLib/main/.github/assets/banner.png"/>
+<img src="https://raw.githubusercontent.com/BugCleanser/MzLib_old/main/.github/assets/banner.png"/>
 
 ***A base plugin and library in Bukkit***
 
-![Code-Size](https://img.shields.io/github/languages/code-size/BugCleanser/MzLib?style=flat-square)
-![Release](https://img.shields.io/github/v/release/BugCleanser/MzLib?style=flat-square)
-![Actions](https://img.shields.io/github/actions/workflow/status/BugCleanser/MzLib/build.yml?style=flat-square)
+![Code-Size](https://img.shields.io/github/languages/code-size/BugCleanser/MzLib_old?style=flat-square)
+![Release](https://img.shields.io/github/v/release/BugCleanser/MzLib_old?style=flat-square)
+![Actions](https://img.shields.io/github/actions/workflow/status/BugCleanser/MzLib_old/build.yml?style=flat-square)
 
 </div>
 
@@ -18,7 +18,7 @@ MzLib 是一个基于 Bukkit 平台的开发类库，同时自带许多基础功
 
 ## 安装
 本体安装：
-1. 在 [Releases (稳定)](https://github.com/BugCleanser/MzLib/releases) 或 [Actions (测试)](https://github.com/BugCleanser/MzLib/actions) 下载插件本体；
+1. 在 [Releases (稳定)](https://github.com/BugCleanser/MzLib_old/releases) 或 [Actions (测试)](https://github.com/BugCleanser/MzLib_old/actions) 下载插件本体；
 2. 将插件本体放入服务端的 `plugins` 文件夹内；
 3. 使用 [PlugManX](https://www.spigotmc.org/resources/plugmanx.88135/) 热加载 或 `/stop` 重启服务器以使用 MzLib。
 
@@ -27,7 +27,7 @@ MzLib 是一个基于 Bukkit 平台的开发类库，同时自带许多基础功
 <br>
 
 MzLibAgent 安装：
-1. 在 [Releases (稳定)](https://github.com/BugCleanser/MzLib/releases) 或 [Actions (测试)](https://github.com/BugCleanser/MzLib/actions) 下载 MzLibAgent；
+1. 在 [Releases (稳定)](https://github.com/BugCleanser/MzLib_old/releases) 或 [Actions (测试)](https://github.com/BugCleanser/MzLib_old/actions) 下载 MzLibAgent；
 2. 将插件本体放入服务端根目录（与核心同级）；
 3. 在服务端的启动参数内添加 `-javaagent:MzLibAgent.jar`（需在 `java` 参数之后，`-jar` 参数之前）；
 4. 重启服务器以使用 MzLib。
