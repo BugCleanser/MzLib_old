@@ -17,19 +17,17 @@ public class InstrumentationGetterAgent
 	{
 		byte[] buffer=new byte[1024];
 		int len=0;
-		ByteArrayOutputStream bos=new ByteArrayOutputStream();
-		try
+		try(ByteArrayOutputStream bos=new ByteArrayOutputStream())
 		{
 			while((len=inputStream.read(buffer))!=-1)
 			{
 				bos.write(buffer,0,len);
 			}
-			bos.close();
+			return bos.toByteArray();
 		}
 		catch(Throwable e)
 		{
 			throw new RuntimeException(e);
 		}
-		return bos.toByteArray();
 	}
 }
