@@ -15,7 +15,7 @@ public class InstrumentationGetterAgent
 	}
 	public static byte[] readInputStream(InputStream inputStream)
 	{
-		byte[] buffer=new byte[1024];
+		byte[] buffer=new byte[4096];
 		int len=0;
 		try(ByteArrayOutputStream bos=new ByteArrayOutputStream())
 		{
