@@ -15,7 +15,7 @@ repositories {
 }
 
 group = "mz.lib"
-version = "10.0.1-pre48-test12"
+version = "10.0.1-pre48-test13"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {

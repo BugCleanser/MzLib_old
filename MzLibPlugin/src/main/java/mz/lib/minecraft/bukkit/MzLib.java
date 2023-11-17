@@ -143,4 +143,10 @@ public class MzLib extends MzPlugin
 		
 		super.onEnable();
 	}
+
+	public static void runTask(Runnable runnable)
+	{
+		Bukkit.getScheduler().runTask(MzLib.instance, runnable);
+	}
+
 }
