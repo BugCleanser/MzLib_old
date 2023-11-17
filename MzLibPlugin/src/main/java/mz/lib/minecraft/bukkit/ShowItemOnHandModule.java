@@ -22,7 +22,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.*;
 
 public final class ShowItemOnHandModule extends AbsModule
 {
@@ -95,7 +94,7 @@ public final class ShowItemOnHandModule extends AbsModule
 				Player pl=Bukkit.getPlayer(StringUtil.mergeStrings(s[1].split("§.")));
 				if(pl!=null)
 				{
-					ItemStack item=isBook(ObcItemStack.ensure(pl.getInventory().getItem(Integer.parseInt(s[2]))).getRaw());
+					ItemStack item= ensureBook(ObcItemStack.ensure(pl.getInventory().getItem(Integer.parseInt(s[2]))).getRaw());
 					msg.extra.add(0,new TextMessageComponent(StringUtil.replaceStrings(LangUtil.getTranslated(sender,"mzlib.showItemOnHand.format"),new MapEntry<>("%\\{item\\}",ItemStackBuilder.getDropNameWithNum(item,sender)))).setShowOnMouse(new ShowItemOnMouse(item)));
 				}
 				msg.extra.add(1,new TextMessageComponent(s[3]));
@@ -116,7 +115,7 @@ public final class ShowItemOnHandModule extends AbsModule
 		}
 	}
 
-	public ItemStack isBook(ItemStack item)
+	public ItemStack ensureBook(ItemStack item)
 	{
 		int book = 0;
 		if(item.getType() == Material.WRITTEN_BOOK) book = 1;
