@@ -10,6 +10,7 @@ import mz.lib.minecraft.bukkit.message.showonmouse.ShowItemOnMouse;
 import mz.lib.minecraft.bukkit.module.AbsModule;
 import mz.lib.minecraft.bukkit.wrappedobc.ObcItemStack;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,10 +18,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.*;
 
 public final class ShowItemOnHandModule extends AbsModule
 {
@@ -93,7 +94,7 @@ public final class ShowItemOnHandModule extends AbsModule
 				Player pl=Bukkit.getPlayer(StringUtil.mergeStrings(s[1].split("§.")));
 				if(pl!=null)
 				{
-					ItemStack item=ObcItemStack.ensure(pl.getInventory().getItem(Integer.parseInt(s[2]))).getRaw();
+					ItemStack item= ensureBook(ObcItemStack.ensure(pl.getInventory().getItem(Integer.parseInt(s[2]))).getRaw());
 					msg.extra.add(0,new TextMessageComponent(StringUtil.replaceStrings(LangUtil.getTranslated(sender,"mzlib.showItemOnHand.format"),new MapEntry<>("%\\{item\\}",ItemStackBuilder.getDropNameWithNum(item,sender)))).setShowOnMouse(new ShowItemOnMouse(item)));
 				}
 				msg.extra.add(1,new TextMessageComponent(s[3]));
@@ -113,4 +114,28 @@ public final class ShowItemOnHandModule extends AbsModule
 				decorate(m,sender);
 		}
 	}
+
+	public ItemStack ensureBook(ItemStack item)
+	{
+		int book = 0;
+		if(item.getType() == Material.WRITTEN_BOOK) book = 1;
+		if(item.getType() == Material.BOOK_AND_QUILL) book = 2;
+		if(book != 0)
+		{
+			ItemStack airBook = new ItemStack(Material.WRITTEN_BOOK);
+			if(item.getItemMeta().hasDisplayName())
+			{
+				ItemMeta meta = airBook.getItemMeta();
+				String name = item.getItemMeta().getDisplayName();
+				meta.setDisplayName(name);
+				airBook.setItemMeta(meta);
+			} else
+			{
+				airBook.setAmount(item.getAmount());
+			}
+			item = airBook;
+		}
+		return item;
+	}
+
 }

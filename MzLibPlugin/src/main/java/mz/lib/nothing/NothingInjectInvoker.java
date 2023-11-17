@@ -11,7 +11,8 @@ public class NothingInjectInvoker implements Function<Object[],Object>
 {
 	public MethodHandle target;
 	public Class<? extends WrappedObject>[] argsWrappers;
-	public NothingInjectInvoker(MethodHandle target,Class<? extends WrappedObject> ...argsWrappers)
+	@SafeVarargs
+	public NothingInjectInvoker(MethodHandle target, Class<? extends WrappedObject> ...argsWrappers)
 	{
 		this.target=target;
 		this.argsWrappers=argsWrappers;
